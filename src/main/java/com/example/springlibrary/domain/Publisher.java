@@ -29,7 +29,7 @@ public class Publisher {
 
     private String zip;
 
-
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.MERGE,mappedBy = "publisher")
+    // CASCADE TYPELAR KAPSAYICI SINIF SİLİNDİĞİNDE O VARİABLE A NE OLACAĞINI BELİRTİR YANİ BURDA BOOK SİLİNCEKSE ALL SİLİNMİCEKSE MERGE EDİCEZ
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "publisher")
     private Set<Book> books;
 }

@@ -22,6 +22,7 @@ public class Author {
 
     private String surname;
 
+    // @Joincolumn yazdığın yerde olan variable gözükür mesela buraya koyarsak book gözükür authorda  bu sebepten buraya yazmıyorum
     @ManyToMany(cascade = CascadeType.MERGE,mappedBy = "authors",fetch = FetchType.LAZY)
     private Set<Book> books;
 

@@ -18,12 +18,21 @@ public class Book {
 
     private String name;
 
+
     private String isbn;
 
-    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "books",cascade = CascadeType.MERGE)
-    @JoinTable(name = "book_author",joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
+    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
+    @JoinColumn// bunun yerine @JoinColumn yazarsan yeter
     private Set<Author> authors;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
+    @JoinColumn
     private Publisher publisher;
+
+    public Book(String id, String name, String isbn) {
+        this.id = id;
+        this.name = name;
+        this.isbn = isbn;
+    }
+
 }

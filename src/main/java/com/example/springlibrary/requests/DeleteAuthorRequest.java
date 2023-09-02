@@ -7,10 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetBookRequest {
+public class DeleteAuthorRequest {
     private String id;
 
     private String name;
 
-    private String isbn;
+    private String surname;
 }

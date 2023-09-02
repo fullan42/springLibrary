@@ -14,9 +14,17 @@ import java.util.Set;
 @AllArgsConstructor
 public class Author {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+
+    public Author(String id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
 
     private String name;
 

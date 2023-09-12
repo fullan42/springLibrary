@@ -10,17 +10,14 @@ import com.example.springlibrary.requests.UpdateAuthorRequest;
 import com.example.springlibrary.responses.CreateAuthorResponse;
 import com.example.springlibrary.domain.Author;
 import com.example.springlibrary.responses.UpdateAuthorResponse;
-import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
-@Data
 public class AuthorService {
 
-    private final AuthorRepository authorRepository;
 
+    private final AuthorRepository authorRepository;
     private final AuthorConverter authorConverter;
 
     public AuthorService(AuthorRepository authorRepository, AuthorConverter authorConverter) {
@@ -47,7 +44,7 @@ public class AuthorService {
 
     }
     private Author findById(String id){
-        return authorRepository.findById(id).orElseThrow(() -> new AuthorNotFoundException(Constant.AUTHOR_NOT_FOUND));
+        return authorRepository.findById(id).orElseThrow(() -> new AuthorNotFoundException(Constant.BOOK_NOT_FOUND));
     }
     public UpdateAuthorResponse updateAuthorResponse(UpdateAuthorRequest request){
        Author author= authorRepository.findAuthorByName(request.getName()).orElseThrow((() -> new AuthorNotFoundException(Constant.AUTHOR_NOT_FOUND)));
